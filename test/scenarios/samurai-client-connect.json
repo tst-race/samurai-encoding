@@ -1,0 +1,31 @@
+{
+  "id": "samurai-client-connect",
+  "mode": "client-connect",
+  "wait_time": 120,
+  "timeout": 240,
+  "network": {
+    "name": "samurai-client-connect-network",
+    "subnet": "10.40.3.0/24"
+  },
+  "nodes": [
+    {
+      "role": "listener",
+      "id": "samurai-client-connect-listener",
+      "ip": "10.40.3.3",
+      "slots": {
+        "channel": "samuraiTwoSixIndirectComposition"
+      }
+    },
+    {
+      "role": "connector",
+      "id": "samurai-client-connect-connector",
+      "ip": "10.40.3.2",
+      "slots": {
+        "channel": "samuraiTwoSixIndirectComposition"
+      }
+    }
+  ],
+  "send_message": "samurai client-connect test",
+  "reply_message": "samurai server reply",
+  "description": "Persistent socket proxy: client and server exchange multiple messages with Samurai encoding through twoSixIndirect transport."
+}

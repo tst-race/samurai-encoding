@@ -1,0 +1,56 @@
+{
+    "plugins": [
+        {
+            "file_path": "PluginSamuraiEncoding",
+            "plugin_type": "comms",
+            "file_type": "shared_library",
+            "node_type": "any",
+            "shared_library_path": "libPluginSamuraiEncoding.so",
+            "channels": [],
+            "transports": [],
+            "usermodels": [],
+            "encodings": ["samurai"]
+        }
+    ],
+    "channel_properties": {
+        "samuraiTwoSixIndirectComposition": {
+            "channelGid": "samuraiTwoSixIndirectComposition",
+            "connectionType": "CT_INDIRECT",
+            "linkDirection": "LD_CREATOR_TO_LOADER",
+            "transmissionType": "TT_MULTICAST",
+            "sendType": "ST_STORED_ASYNC",
+            "reliable": true,
+            "isFlushable": false,
+            "duration_s": -1,
+            "period_s": -1,
+            "mtu": -1,
+            "maxLinks": 10,
+            "supportedHints": [],
+            "creatorExpected": {
+                "send": {"bandwidth_bps": 1000000, "latency_ms": 10000, "loss": 0.0},
+                "receive": {"bandwidth_bps": 1000000, "latency_ms": 10000, "loss": 0.0}
+            },
+            "loaderExpected": {
+                "send": {"bandwidth_bps": 1000000, "latency_ms": 10000, "loss": 0.0},
+                "receive": {"bandwidth_bps": 1000000, "latency_ms": 10000, "loss": 0.0}
+            }
+        }
+    },
+    "channel_parameters": [
+        {
+            "key": "save-encoded-output",
+            "type": "bool",
+            "required": false,
+            "default": false,
+            "description": "Save encoded output artifacts for offline analysis"
+        }
+    ],
+    "compositions": [
+        {
+            "id": "samuraiTwoSixIndirectComposition",
+            "transport": "twoSixIndirect",
+            "usermodel": "twoSixFileBasedUserModel",
+            "encodings": ["samurai"]
+        }
+    ]
+}

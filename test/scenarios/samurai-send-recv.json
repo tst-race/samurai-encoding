@@ -1,0 +1,31 @@
+{
+  "id": "samurai-send-recv",
+  "mode": "send-recv",
+  "wait_time": 120,
+  "timeout": 240,
+  "network": {
+    "name": "samurai-send-recv-network",
+    "subnet": "10.40.2.0/24"
+  },
+  "nodes": [
+    {
+      "role": "listener",
+      "id": "samurai-send-recv-listener",
+      "ip": "10.40.2.3",
+      "slots": {
+        "channel": "samuraiTwoSixIndirectComposition"
+      }
+    },
+    {
+      "role": "connector",
+      "id": "samurai-send-recv-connector",
+      "ip": "10.40.2.2",
+      "slots": {
+        "channel": "samuraiTwoSixIndirectComposition"
+      }
+    }
+  ],
+  "send_message": "samurai send-recv test",
+  "reply_message": "samurai reply test",
+  "description": "Request/reply: the connector sends a request with Samurai encoding, the listener replies with Samurai encoding."
+}
